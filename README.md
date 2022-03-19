@@ -1,1 +1,9 @@
-# tiralabra-harjoitustyo
+# OTSIKKO TULEE TÄHÄN
+
+Tekstiä
+
+## Dokumentaatio
+
+[Määrittelydokumentti]
+
+[Viikkoraportit]
