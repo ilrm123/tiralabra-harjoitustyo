@@ -1,6 +1,5 @@
-# OTSIKKO TULEE TÄHÄN
+# TiraLabra harjoitustyö: Luolastojen/labyrinttien generointi
 
-Tekstiä
 
 ## Dokumentaatio
 
