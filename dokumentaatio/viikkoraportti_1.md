@@ -4,6 +4,6 @@ Tällä viikolla olen valinnut aiheeksi luolastojen generoinnin, koska se vaikut
 
 Opin tällä viikolla että algoritmeille on runsaasti eri käyttötarkoituksia ja että saman ongelman ratkaisuun voi olla paljon erilaisia algoritmeja jotka toimivat eri tavoilla sekä tehokkuuksilla.
 
-Ohjelman kehitys ei ole vielä alkanut repositorion luontia lukuunottamatta. Seuraavaksi ryhdyn selvittämään miten projektin rakenne kannattaisi pistää alulle.
+Ohjelman kehitys ei ole vielä alkanut repositorion luontia ja projektin Poetrylla alustamista lukuunottamatta. Seuraavaksi ryhdyn selvittämään miten projektin rakenne kannattaisi pistää alulle.
 
 Viikon aikana käytetty työmäärä noin 6h
