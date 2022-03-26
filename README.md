@@ -6,3 +6,5 @@
 [Määrittelydokumentti](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/maarittelydokumentti.md)
 
 [Viikkoraportti 1](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/viikkoraportti_1.md)
+
+[Viikkoraportti 2](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/viikkoraportti_2.md)
