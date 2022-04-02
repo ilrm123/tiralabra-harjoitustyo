@@ -25,7 +25,7 @@ class MazeGeneration:
         #vieruslistaesitys verkolle
         for i in range(1, height*width+1):
             self.graph[i] = []
-        
+
         #lisätään kaaret viereisiin solmuihin
         for node in self.graph:
             #onko vierailtu
@@ -52,11 +52,11 @@ class MazeGeneration:
             self.graph[counter+1] = copylist2
             counter += int(width)
             if counter == height*width:
-                break   
+                break
 
     def random_depthfirst(self):
         """Luo labyrintin satunnaistetulla syvyyshakualgoritmilla
-        
+
         Returns:
             Lista, joka kertoo kaikki poistetut seinät, eli kaikki kuljetut kaaret
         """
@@ -64,7 +64,7 @@ class MazeGeneration:
         #alustetaan pino (lista) ja valitaan satunnainen aloitussolmu
         stack = []
         startnode = random.choice(range(1, self.height*self.width+1))
-        self.graph[startnode][0] = True 
+        self.graph[startnode][0] = True
         stack.append(startnode)
         self.removedwalls = []
 
@@ -102,7 +102,7 @@ def main():
         maze = MazeGeneration(height, width)
         route = maze.random_depthfirst()
 
-        #tulostaa listan tupleja jotka kertovat järjestyksessä algoritmin luoman reitin, eli kaikki kuljetut kaaret
+        #tulostaa listan tupleja jotka kertovat järjestyksessä algoritmin luoman reitin
         print(route)
 
 
