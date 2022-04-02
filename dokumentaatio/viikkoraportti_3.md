@@ -8,6 +8,6 @@ Opin tällä viikolla erään tavan jolla syvyyshakualgoritmi voidaan toteuttaa.
 
 Vaikeuksia ei tällä viikolla ole juurikaan ollut. 
 
-Seuraavaksi alan toteuttamaan jotain toista algoritmia, johon verrata jo toteuttamaani algoritmiin, ja toivon mukaan laajentamaan testausta ja aloittamaan visualisointia.
+Seuraavaksi alan toteuttamaan jotain toista algoritmia, jota verrata jo toteuttamaani algoritmiin, ja toivon mukaan laajentamaan testausta ja aloittamaan visualisointia.
 
 Käytetty tuntimäärä noin 10h
