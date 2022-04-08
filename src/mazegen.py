@@ -1,4 +1,6 @@
 import random
+import pygame
+import time
 
 class MazeGeneration:
     """Luokka, jolla labyrintti ja sen reitti/reitit luodaan
@@ -61,6 +63,9 @@ class MazeGeneration:
             Lista, joka kertoo kaikki poistetut seinät, eli kaikki kuljetut kaaret
         """
 
+        if self.height*self.width <= 2:
+            return
+
         #alustetaan pino (lista) ja valitaan satunnainen aloitussolmu
         stack = []
         startnode = random.choice(range(1, self.height*self.width+1))
@@ -88,22 +93,69 @@ class MazeGeneration:
                 current = int(new)
 
         return self.removedwalls
+    
+    def visualize(self, height, width, walls):
+        grid = []
+        counter = 1
 
+        for i in range(1, height+1):
+            grid.append([*range(counter, counter+width)])
+            counter += int(width)
+        
+        pygame.init()
+        screen = pygame.display.set_mode((width*25+8, height*25+8))
+        pygame.display.set_caption("Labyrintin visualisointi")
+        screen.fill((0, 0, 0))
+
+        x = 4
+        y = 4
+        coords = {}
+
+        for row in grid:
+            for square in row:
+                pygame.draw.rect(screen, (0,0,50), pygame.Rect(x, y, 25, 25))
+                coords[square] = (x, y)
+                x += 25
+            y += 25
+            x = 4
+
+        pygame.display.flip()
+        time.sleep(0.125)
+
+        pygame.draw.rect(screen, (100,180,255), pygame.Rect(coords[walls[0][0]][0]+2, coords[walls[0][0]][1]+2, 21, 21))
+
+        for wall in walls:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    exit()
+            
+            if wall[1] == wall[0]-1: #vasen seinä
+                pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+23, coords[wall[1]][1]+2, 4, 21))
+            elif wall[1] == wall[0]+1: #oikea seinä
+                pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]-2, coords[wall[1]][1]+2, 4, 21))
+            elif wall[1] == wall[0]-width: #yläseinä
+                pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+23, 21, 4))
+            elif wall[1] == wall[0]+width: #alaseinä
+                pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]-2, 21, 4))
+            
+            pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+2, 21, 21))
+            time.sleep(0.125)
+            pygame.display.flip()
+        
 
 def main():
     """Pääfunktio, joka suorittaa ohjelman
 
     """
+
     height = int(input("Anna labyrintin korkeus: "))
     width = int(input("Anna labyrintin leveys: "))
-    if height*width < 4:
+    maze = MazeGeneration(height, width)
+    route = maze.random_depthfirst()
+    if route == None:
         print("Liian pieni labyrintti")
     else:
-        maze = MazeGeneration(height, width)
-        route = maze.random_depthfirst()
-
-        #tulostaa listan tupleja jotka kertovat järjestyksessä algoritmin luoman reitin
-        print(route)
+        maze.visualize(height, width, route)
 
 
 if __name__ == "__main__":
