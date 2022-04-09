@@ -9,3 +9,5 @@ Opin tällä viikolla Primin algoritmin toimintaa ja opin ymmärtämään Pygame
 Vaikeuksia tuotti tällä viikolla Pygamen kanssa säätäminen, mutta sain ne ongelmat lopulta ratkaistua. Vaikeuksia oli myös Kruskalin algoritmin toteutuksessa kuten yllä mainittiin.
 
 Seuraavaksi pyrin laajentamaan testausta koska sille ei jäänyt tällä viikolla juurikaan aikaa, ja pyrin myös selvittämään algoritmien aikavaativuuksia ja aloittamaan niiden tarkemman vertailun.
+
+Käytetty tuntimäärä noin 14h
