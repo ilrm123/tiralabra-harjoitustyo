@@ -6,7 +6,7 @@ Ohjelma on edistynyt hyvin sillä sekä visualisointi että toinen algoritmi ova
 
 Opin tällä viikolla Primin algoritmin toimintaa ja opin ymmärtämään Pygamea enemmän kuin aikaisemmin.
 
-Vaikeuksia tuotti tällä viikolla Pygamen kanssa säätäminen, mutta sain ne ongelmat lopulta ratkaistua. Vaikeuksia oli myös Kruskalin algoritmin toteutuksessa kuten yllä mainittiin.
+Vaikeuksia tuotti tällä viikolla Pygamen kanssa säätäminen, jossa kesti pitkään, mutta sain ne ongelmat lopulta ratkaistua. Vaikeuksia oli myös Kruskalin algoritmin toteutuksessa kuten yllä mainittiin.
 
 Seuraavaksi pyrin laajentamaan testausta koska sille ei jäänyt tällä viikolla juurikaan aikaa, ja pyrin myös selvittämään algoritmien aikavaativuuksia ja aloittamaan niiden tarkemman vertailun.
 
