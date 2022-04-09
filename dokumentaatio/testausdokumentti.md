@@ -1,7 +1,7 @@
 # Testausdokumentti
 
 Coveragen tuottama yksikkötestauksen kattavuusraportti:
-![alt text](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/kattavuus.png?raw=true)
+![alt text](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/testikattavuus.png?raw=true)
 
 Testejä on tähän mennessä vasta kaksi. Ensimmäisessä testataan onko luodun verkon solmut yhdistetty kaarilla oikeisiin solmuihin, ja toisessa testataan käykö satunnaistettu syvyyshakualgoritmi kaikissa solmuissa. Testit ovat siinä mielessä puutteellisia, että ne testaavat vain yhdenlaista tapausta.
 
