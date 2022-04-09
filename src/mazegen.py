@@ -169,7 +169,7 @@ class MazeGeneration:
         pygame.display.set_caption("Labyrintin visualisointi")
         screen.fill((0, 0, 0))
 
-        # Koordinaattimuuttujat joiden avulla luodaan ruudukko ja lisätään kaikkien solujen
+        # Koordinaattimuuttujat joiden avulla luodaan ruudukko ja lisätään kaikkien solmujen
         # koordinaatit coords-sanakirjaan
         x = 4
         y = 4
