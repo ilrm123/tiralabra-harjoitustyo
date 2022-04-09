@@ -6,5 +6,5 @@ Tarkoista aika- tai tilavaativuuksista ei ole tällä hetkellä tietoa, mutta oh
 
 Työn tämänhetkisiä puutteita ovat ainakin testauksen vähäisyys ja mahdollisesti hieman "väärin" toteutetut algoritmit mikä mahdollisesti vaikuttaa aikavaativuuteen.
 
-Työtä voisi parannella ainakin joillain hienosäädöillä, kuten virheellisten syötteiden käsittelyllä ja mahdollistamalla todella suurien labyrinttien visualisoinnin (Pygamen ikkuna skaalantuu labyrintin koon mukaan joten isot labyrintit eivät mahdu ruudulle)
+Työtä voisi parannella ainakin joillain hienosäädöillä, kuten virheellisten syötteiden käsittelyllä ja mahdollistamalla todella suurien labyrinttien visualisoinnin (Pygamen ikkuna skaalautuu labyrintin koon mukaan joten isot labyrintit eivät mahdu ruudulle)
 
