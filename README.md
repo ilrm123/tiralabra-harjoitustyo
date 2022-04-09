@@ -1,4 +1,4 @@
-# TiraLabra harjoitustyö: Luolastojen/labyrinttien generointi
+# TiraLabra harjoitustyö: Labyrinttien generointi eri algoritmeilla
 
 
 ## Dokumentaatio
