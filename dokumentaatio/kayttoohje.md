@@ -2,7 +2,7 @@
 
 Ohjelma käyttää Poetrya.
 
-Ohjelman suorituksen vaiheet:
+## Ohjelman suorituksen vaiheet:
 
 1.  Asenna riippuvuudet
 
@@ -21,9 +21,11 @@ poetry shell
 ```bash
 python3 src/mazegen.py
 ```
+## Ohjelman käyttö
 
+Ohjelma pyytää komentorivillä kahta syötettä: labyrintin korkeutta ja leveyttä. Syötteen tulee olla jokin kokonaisluku siten että kumpikaan ei ole 1 ja labyrintti on vähintään kokoa 2x2. Näiden jälkeen ohjelma kysyy järjestyksessä haluatko visualisoida algoritmien toiminnan. Syöttämällä 1 visualisointi aukeaa Pygame-ikkunassa ja syöttämällä 2 visualisointi ohitetaan. Visualisoinnin pyöriessä painamalla ylöspäin-nuolinäppäintä visualisointia voi nopeuttaa korkeintaan viisinkertaiseksi.
 
-Muut toiminnot virtuaaliympäristössä:
+## Muut toiminnot virtuaaliympäristössä:
 
 Testit:
 
