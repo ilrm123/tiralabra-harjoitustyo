@@ -9,6 +9,8 @@
 
 [Toteutusdokumentti](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/toteutusdokumentti.md)
 
+[Käyttöohje](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
+
 [Viikkoraportti 1](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/viikkoraportti_1.md)
 
 [Viikkoraportti 2](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/viikkoraportti_2.md)
