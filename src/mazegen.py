@@ -1,6 +1,6 @@
 import random
-import pygame
 import time
+import pygame
 
 class MazeGeneration:
     """Luokka, jolla labyrintti ja sen reitti/reitit luodaan
@@ -63,7 +63,7 @@ class MazeGeneration:
             counter += int(self.width)
             if counter == self.height*self.width:
                 break
-        
+
         return graph
 
     def random_depthfirst(self, graph):
@@ -91,7 +91,7 @@ class MazeGeneration:
             # lisätään tämänhetkisen solmun ei-vieraillut naapurit listaan
             unvisited = []
             for node in graph[current][1:]:
-                if graph[node][0] == False:
+                if graph[node][0] is False:
                     unvisited.append(node)
 
             # jos solmulla on vierailemattomia naapureita niin valitaan satunnainen naapuri,
@@ -106,7 +106,7 @@ class MazeGeneration:
                 current = int(new)
 
         return removedwalls
-    
+
     def random_prim(self, graph):
         """Luo labyrintin satunnaistetulla Primin algoritmilla
 
@@ -122,7 +122,7 @@ class MazeGeneration:
         startnode = random.choice(range(1, self.height*self.width+1))
         graph[startnode][0] = True
         removedwalls = []
-        
+
         # Lisätään aloitussolmun seinät listaan
         for neighbor in graph[startnode][1:]:
             walls.append((startnode, neighbor))
@@ -132,21 +132,21 @@ class MazeGeneration:
         # ja jatketaan kunnes seinälista on tyhjä
         while len(walls) != 0:
             randwall = random.choice(walls)
-            
-            if (graph[randwall[0]][0] == True and graph[randwall[1]][0] == False) or (graph[randwall[1]][0] == True and graph[randwall[0]][0] == False):
+
+            if (graph[randwall[0]][0] is True and graph[randwall[1]][0] is False) or (graph[randwall[1]][0] is True and graph[randwall[0]][0] is False):
                 removedwalls.append(randwall)
 
                 for node in randwall:
-                    if graph[node][0] == False:
+                    if graph[node][0] is False:
                         graph[node][0] = True
-                        
+
                         for neighbor in graph[node][1:]:
                             walls.append((node, neighbor))
-            
+
             walls.remove(randwall)
 
         return removedwalls
-    
+
     def visualize(self, walls):
         """Visualisoi luodun labyrintin
 
@@ -162,7 +162,7 @@ class MazeGeneration:
         for i in range(1, self.height+1):
             grid.append([*range(counter, counter+self.width)])
             counter += int(self.width)
-        
+
         # Alustetaan pygame visualisointia varten, näytön koko riippuu labyrintin koosta
         pygame.init()
         screen = pygame.display.set_mode((self.width*25+8, self.height*25+8))
@@ -201,7 +201,7 @@ class MazeGeneration:
 
                 if event.type == pygame.QUIT:
                     exit()
-            
+
             # seinien poistot
             if wall[1] == wall[0]-1: # vasen seinä
                 pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+23, coords[wall[1]][1]+2, 4, 21))
@@ -211,13 +211,13 @@ class MazeGeneration:
                 pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+23, 21, 4))
             elif wall[1] == wall[0]+self.width: # alaseinä
                 pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]-2, 21, 4))
-            
+
             # vieraillun ruudun värjääminen
             pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+2, 21, 21))
-            
+
             time.sleep(0.125-(counter*0.005))
             pygame.display.flip()
-        
+
 
 def main():
     """Pääfunktio, joka suorittaa ohjelman
@@ -241,7 +241,7 @@ def main():
         ans = int(input("Haluatko visualisoida syvyyshaun? 1 = Kyllä tai 2 = Ei: "))
         if ans == 1:
             maze.visualize(depth)
-            
+
         start = time.time()
         prim = maze.random_prim(graph2)
         end = time.time()
@@ -250,6 +250,6 @@ def main():
         if ans == 1:
             maze.visualize(prim)
 
-    
+
 if __name__ == "__main__":
     main()
