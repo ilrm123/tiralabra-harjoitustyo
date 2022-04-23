@@ -64,7 +64,7 @@ class TestMazeGeneration(unittest.TestCase):
         self.assertEqual(sorted(visited), realamount)
 
     def test_kaikissa_solmuissa_kaydaan_kruskal(self):
-        route = self.generator.random_prim(self.graph3)
+        route = self.generator.random_kruskal(self.graph3)
 
         visited = []
         realamount =[*range(1, 13, 1)]
