@@ -196,8 +196,8 @@ class MazeGeneration:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_UP:
-                        if counter < 25:
-                            counter += 5
+                        if counter < 5:
+                            counter += 1
 
                 if event.type == pygame.QUIT:
                     exit()
@@ -215,7 +215,7 @@ class MazeGeneration:
             # vieraillun ruudun värjääminen
             pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+2, 21, 21))
 
-            time.sleep(0.125-(counter*0.005))
+            time.sleep(0.125-(counter*0.025))
             pygame.display.flip()
 
 
