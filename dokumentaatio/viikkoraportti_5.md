@@ -11,3 +11,5 @@ Kruskalin algoritmin toteutuksessa oli vaikeuksia mutta selvisin niistä.
 Tässä vaiheessa on vielä hieman epäselvää miten suorituskykytestaus tulisi toteuttaa ja minkälaiset aikavaativuudet toteuttamillani algoritmeilla on, en ole vielä pahemmin perehtynyt aiheeseen.
 
 Seuraavaksi pyrin aloittamaan suorituskykytestauksen ja muutenkin keskittymään enemmän algoritmien vertailuun.
+
+Käytetty tuntimäärä noin 7h
