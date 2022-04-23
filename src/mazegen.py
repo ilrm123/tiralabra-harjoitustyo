@@ -146,6 +146,48 @@ class MazeGeneration:
             walls.remove(randwall)
 
         return removedwalls
+    
+    def random_kruskal(self, graph):
+        walls = []
+        nodesets = []
+        removedwalls = []
+
+        for node in graph:
+            for neighbor in graph[node][1:]:
+                if (node, neighbor) not in walls and (neighbor, node) not in walls:
+                    walls.append((node, neighbor))
+        
+        for node in graph:
+            nodesets.append([node])
+        
+        random.shuffle(walls)
+
+        for wall in walls:
+            distinct = True
+            for nodeset in nodesets:
+                if wall[0] in nodeset and wall[1] in nodeset:
+                    distinct = False
+                    break
+            
+            if distinct == False:
+                continue
+            
+            removedwalls.append(wall)
+
+            for nodeset in nodesets:
+                if wall[0] in nodeset:
+                    set1 = nodeset.copy()
+                if wall[1] in nodeset:
+                    set2 = nodeset.copy()
+            
+            if set1 != set2:
+                nodesets.remove(set1)
+                nodesets.remove(set2)
+
+                set1.extend(set2)
+                nodesets.append(set1)
+
+        return removedwalls
 
     def visualize(self, walls):
         """Visualisoi luodun labyrintin
@@ -215,6 +257,9 @@ class MazeGeneration:
             # vieraillun ruudun värjääminen
             pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+2, 21, 21))
 
+            # ylimääräinen nykyisen ruudun värjäys joka tarvitaan Kruskalin algoritmin visualisoinnissa
+            pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[0]][0]+2, coords[wall[0]][1]+2, 21, 21))
+
             time.sleep(0.125-(counter*0.025))
             pygame.display.flip()
 
@@ -233,7 +278,8 @@ def main():
         maze = MazeGeneration(height, width)
         graph1 = maze.create_graph()
         graph2 = maze.create_graph()
-
+        graph3 = maze.create_graph()
+        
         start = time.time()
         depth = maze.random_depthfirst(graph1)
         end = time.time()
@@ -249,6 +295,14 @@ def main():
         ans = int(input("Haluatko visualisoida Primin algoritmin? 1 = Kyllä tai 2 = Ei: "))
         if ans == 1:
             maze.visualize(prim)
+        
+        start = time.time()
+        kruskal = maze.random_kruskal(graph3)
+        end = time.time()
+        print(f"Satunnaistettuun Kruskalin algoritmiin kulunut aika: {end-start} s")
+        ans = int(input("Haluatko visualisoida Kruskalin algoritmin? 1 = Kyllä tai 2 = Ei: "))
+        if ans == 1:
+            maze.visualize(kruskal)
 
 
 if __name__ == "__main__":
