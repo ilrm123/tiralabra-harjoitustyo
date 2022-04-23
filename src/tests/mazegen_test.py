@@ -6,6 +6,7 @@ class TestMazeGeneration(unittest.TestCase):
         self.generator = MazeGeneration(3, 4)
         self.graph1 = self.generator.create_graph()
         self.graph2 = self.generator.create_graph()
+        self.graph3 = self.generator.create_graph()
 
     def test_verkon_vasen_ylakulma_oikein(self):
         self.assertEqual(self.graph1[1], [False, 2, 5])
@@ -62,4 +63,16 @@ class TestMazeGeneration(unittest.TestCase):
 
         self.assertEqual(sorted(visited), realamount)
 
+    def test_kaikissa_solmuissa_kaydaan_kruskal(self):
+        route = self.generator.random_prim(self.graph3)
 
+        visited = []
+        realamount =[*range(1, 13, 1)]
+
+        for edge in route:
+            if edge[0] not in visited:
+                visited.append(edge[0])
+            if edge[1] not in visited:
+                visited.append(edge[1])
+
+        self.assertEqual(sorted(visited), realamount)

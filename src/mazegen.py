@@ -148,20 +148,35 @@ class MazeGeneration:
         return removedwalls
     
     def random_kruskal(self, graph):
+        """Luo labyrintin satunnaistetulla Kruskalin algoritmilla
+
+        Args:
+            graph: Verkko jolla labyrintti muodostetaan
+
+        Returns:
+            Lista, joka kertoo kaikki poistetut seinät, eli kaikki kuljetut kaaret
+        """
+
+        # Luodaan lista seinille, lista solmujoukoille ja lista poistettaville seinille
         walls = []
         nodesets = []
         removedwalls = []
 
+        # Lisätään kaikki seinät eli verkon kaaret seinälistaan
         for node in graph:
             for neighbor in graph[node][1:]:
                 if (node, neighbor) not in walls and (neighbor, node) not in walls:
                     walls.append((node, neighbor))
         
+        # Lisätään kaikki solmut omissa joukoissaan solmujoukkolistaan
         for node in graph:
             nodesets.append([node])
         
+        # Sekoitetaan seinien järjestys listassa
         random.shuffle(walls)
 
+        # Käydään seinät läpi siten, että jos seinän erottamat solmut ovat eri joukoissa,
+        # niin nämä joukot yhdistetään
         for wall in walls:
             distinct = True
             for nodeset in nodesets:
@@ -174,12 +189,14 @@ class MazeGeneration:
             
             removedwalls.append(wall)
 
+            # Etsitään solmujoukoista ne joukot joissa kumpikin solmu on
             for nodeset in nodesets:
                 if wall[0] in nodeset:
                     set1 = nodeset.copy()
                 if wall[1] in nodeset:
                     set2 = nodeset.copy()
             
+            # Yhdistetään joukot
             if set1 != set2:
                 nodesets.remove(set1)
                 nodesets.remove(set2)
@@ -254,10 +271,8 @@ class MazeGeneration:
             elif wall[1] == wall[0]+self.width: # alaseinä
                 pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]-2, 21, 4))
 
-            # vieraillun ruudun värjääminen
+            # seinän erottamien ruutujen värjääminen
             pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+2, 21, 21))
-
-            # ylimääräinen nykyisen ruudun värjäys joka tarvitaan Kruskalin algoritmin visualisoinnissa
             pygame.draw.rect(screen, (50,130,230), pygame.Rect(coords[wall[0]][0]+2, coords[wall[0]][1]+2, 21, 21))
 
             time.sleep(0.125-(counter*0.025))
