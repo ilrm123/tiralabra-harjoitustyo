@@ -146,7 +146,7 @@ class MazeGeneration:
             walls.remove(randwall)
 
         return removedwalls
-    
+
     def random_kruskal(self, graph):
         """Luo labyrintin satunnaistetulla Kruskalin algoritmilla
 
@@ -167,11 +167,11 @@ class MazeGeneration:
             for neighbor in graph[node][1:]:
                 if (node, neighbor) not in walls and (neighbor, node) not in walls:
                     walls.append((node, neighbor))
-        
+
         # Lisätään kaikki solmut omissa joukoissaan solmujoukkolistaan
         for node in graph:
             nodesets.append([node])
-        
+
         # Sekoitetaan seinien järjestys listassa
         random.shuffle(walls)
 
@@ -183,10 +183,10 @@ class MazeGeneration:
                 if wall[0] in nodeset and wall[1] in nodeset:
                     distinct = False
                     break
-            
+
             if distinct == False:
                 continue
-            
+
             removedwalls.append(wall)
 
             # Etsitään solmujoukoista ne joukot joissa kumpikin solmu on
@@ -195,7 +195,7 @@ class MazeGeneration:
                     set1 = nodeset.copy()
                 if wall[1] in nodeset:
                     set2 = nodeset.copy()
-            
+
             # Yhdistetään joukot
             if set1 != set2:
                 nodesets.remove(set1)
@@ -294,7 +294,7 @@ def main():
         graph1 = maze.create_graph()
         graph2 = maze.create_graph()
         graph3 = maze.create_graph()
-        
+
         start = time.time()
         depth = maze.random_depthfirst(graph1)
         end = time.time()
@@ -310,7 +310,7 @@ def main():
         ans = int(input("Haluatko visualisoida Primin algoritmin? 1 = Kyllä tai 2 = Ei: "))
         if ans == 1:
             maze.visualize(prim)
-        
+
         start = time.time()
         kruskal = maze.random_kruskal(graph3)
         end = time.time()
