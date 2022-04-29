@@ -246,9 +246,6 @@ class MazeGeneration:
         pygame.display.flip()
         time.sleep(0.125)
 
-        # Väritetään aloitusruutu
-        pygame.draw.rect(screen, (100,180,255), pygame.Rect(coords[walls[0][0]][0]+2, coords[walls[0][0]][1]+2, 21, 21))
-
         # Visualisoinnin suoritussilmukka
         counter = 0 # kerroin jolla voidaan nopeuttaa visualisointia
         for wall in walls:
@@ -277,6 +274,11 @@ class MazeGeneration:
 
             time.sleep(0.125-(counter*0.025))
             pygame.display.flip()
+
+        # Väritetään aloitus- ja lopetusruudut
+        pygame.draw.rect(screen, (100,180,255), pygame.Rect(coords[walls[0][0]][0]+2, coords[walls[0][0]][1]+2, 21, 21))
+        pygame.draw.rect(screen, (100,180,255), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+2, 21, 21))
+        pygame.display.flip()
 
 
 def main():
