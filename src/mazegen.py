@@ -293,33 +293,44 @@ def main():
         print("Liian pienet mitat labyrintille")
     else:
         maze = MazeGeneration(height, width)
-        graph1 = maze.create_graph()
-        graph2 = maze.create_graph()
-        graph3 = maze.create_graph()
 
-        start = time.time()
-        depth = maze.random_depthfirst(graph1)
-        end = time.time()
-        print(f"Satunnaistettuun syvyyshakuun kulunut aika: {end-start} s")
-        ans = int(input("Haluatko visualisoida syvyyshaun? 1 = Kyllä tai 2 = Ei: "))
-        if ans == 1:
-            maze.visualize(depth)
+        while True:
+            print("Valitse haluamasi algoritmi: ")
+            print("1. Generoi satunnaistetulla syvyyshaulla")
+            print("2. Generoi Primin algoritmilla")
+            print("3. Generoi Kruskalin algoritmilla")
+            print("4. Lopeta")
+            action = int(input("Syötä numero: "))
 
-        start = time.time()
-        prim = maze.random_prim(graph2)
-        end = time.time()
-        print(f"Satunnaistettuun Primin algoritmiin kulunut aika: {end-start} s")
-        ans = int(input("Haluatko visualisoida Primin algoritmin? 1 = Kyllä tai 2 = Ei: "))
-        if ans == 1:
-            maze.visualize(prim)
-
-        start = time.time()
-        kruskal = maze.random_kruskal(graph3)
-        end = time.time()
-        print(f"Satunnaistettuun Kruskalin algoritmiin kulunut aika: {end-start} s")
-        ans = int(input("Haluatko visualisoida Kruskalin algoritmin? 1 = Kyllä tai 2 = Ei: "))
-        if ans == 1:
-            maze.visualize(kruskal)
+            if action == 1:
+                graph1 = maze.create_graph()
+                start = time.time()
+                depth = maze.random_depthfirst(graph1)
+                end = time.time()
+                print(f"Satunnaistettuun syvyyshakuun kulunut aika: {end-start} s")
+                ans = int(input("Haluatko visualisoida syvyyshaun? 1 = Kyllä tai 2 = Ei: "))
+                if ans == 1:
+                    maze.visualize(depth)
+            elif action == 2:
+                graph2 = maze.create_graph()
+                start = time.time()
+                prim = maze.random_prim(graph2)
+                end = time.time()
+                print(f"Satunnaistettuun Primin algoritmiin kulunut aika: {end-start} s")
+                ans = int(input("Haluatko visualisoida Primin algoritmin? 1 = Kyllä tai 2 = Ei: "))
+                if ans == 1:
+                    maze.visualize(prim)
+            elif action == 3:
+                graph3 = maze.create_graph()
+                start = time.time()
+                kruskal = maze.random_kruskal(graph3)
+                end = time.time()
+                print(f"Satunnaistettuun Kruskalin algoritmiin kulunut aika: {end-start} s")
+                ans = int(input("Haluatko visualisoida Kruskalin algoritmin? 1 = Kyllä tai 2 = Ei: "))
+                if ans == 1:
+                    maze.visualize(kruskal)
+            elif action == 4:
+                break
 
 
 if __name__ == "__main__":
