@@ -23,7 +23,7 @@ python3 src/mazegen.py
 ```
 ## Ohjelman käyttö
 
-Ohjelma pyytää komentorivillä kahta syötettä: labyrintin korkeutta ja leveyttä. Syötteen tulee olla jokin kokonaisluku siten että kumpikaan ei ole 1 ja labyrintti on vähintään kokoa 2x2. Näiden jälkeen ohjelma kysyy järjestyksessä haluatko visualisoida algoritmien toiminnan. Syöttämällä 1 visualisointi aukeaa Pygame-ikkunassa ja syöttämällä 2 visualisointi ohitetaan. Visualisoinnin pyöriessä painamalla ylöspäin-nuolinäppäintä visualisointia voi nopeuttaa korkeintaan viisinkertaiseksi.
+Ohjelma pyytää komentorivillä kahta syötettä: labyrintin korkeutta ja leveyttä. Syötteen tulee olla jokin kokonaisluku siten että kumpikaan ei ole 1 ja labyrintti on vähintään kokoa 2x2. Näiden jälkeen ohjelma pyytää käyttäjää valitsemaan toiminnon listalta ja kysyy jokaisen algoritmin kohdalla haluaako käyttäjä visualisoida algoritmien toiminnan. Syöttämällä 1 visualisointi aukeaa Pygame-ikkunassa ja syöttämällä 2 visualisointi ohitetaan. Visualisoinnin pyöriessä painamalla ylöspäin-nuolinäppäintä visualisointia voi nopeuttaa korkeintaan viisinkertaiseksi.
 
 Huom. erittäin suurten labyrinttien generoinnissa voi kestää Primin algoritmilla varsin pitkään ja Kruskalin algoritmilla TODELLA pitkään, 100x100 kokoisen labyrintin generoimiseen Kruskalin algoritmilla kesti koneellani 21 sekuntia.
 Suuria labyrintteja ei myöskään välttämättä kannata visualisoida sillä Pygame-ikkuna skaalantuu labyrintin koon mukaan.
