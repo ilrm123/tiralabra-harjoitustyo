@@ -76,3 +76,6 @@ class TestMazeGeneration(unittest.TestCase):
                 visited.append(edge[1])
 
         self.assertEqual(sorted(visited), realamount)
+
+    def test_get_stats_palauttaa_oikeat_tiedot(self):
+        pass
