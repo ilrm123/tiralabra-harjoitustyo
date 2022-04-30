@@ -281,8 +281,19 @@ class MazeGeneration:
         pygame.display.flip()
     
     def get_stats(self, walls):
+        """Selvittää labyrintin rakenteelliset ominaisuudet ja palauttaa ne listana
+
+        Args:
+            walls: Lista labyrintin poistetuista seinistä eli kuljetusta reitistä
+        
+        Returns:
+            stats: Sanakirja jossa on tiedot labyrinttien rakenteesta
+        """
+
+        # Järjestyksessä: umpikujat, kaksi-, kolme- ja neljäsuuntaiset ruudut
         stats = [0, 0, 0, 0]
 
+        # Sanakirjaan tallennetaan jokaisen luvun esiintymismäärä
         amounts = {}
         for wall in walls:
             if wall[0] not in amounts:
@@ -295,6 +306,7 @@ class MazeGeneration:
             else:
                 amounts[wall[1]] += 1
             
+        # Umpikujien ym. määrä selvitetään lukujen esiintymismääristä
         for square in amounts:
             if amounts[square] == 1:
                 stats[0] += 1
@@ -308,6 +320,12 @@ class MazeGeneration:
         return stats
     
     def compare(self, stats):
+        """Tulostaa kaikilla algoritmeilla luotujen labyrinttien vertailutilastoja
+
+        Args:
+            stats: Sanakirja jossa on tiedot labyrinttien rakenteesta
+        """
+
         for algo in stats:
             print(f"{algo}: ")
             print(f"{stats[algo][0]} umpikujaa")
@@ -315,8 +333,8 @@ class MazeGeneration:
             print(f"{stats[algo][2]} kolmen suunnan ruutua")
             print(f"{stats[algo][3]} neljän suunnan ruutua")
             print(f"Kulunut aika: {stats[algo][4]} s")
+            print()
             
-
 
 def main():
     """Pääfunktio, joka suorittaa ohjelman
