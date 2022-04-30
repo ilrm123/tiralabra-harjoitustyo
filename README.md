@@ -20,3 +20,5 @@
 [Viikkoraportti 4](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/viikkoraportti_4.md)
 
 [Viikkoraportti 5](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/viikkoraportti_5.md)
+
+[Viikkoraportti 6](https://github.com/ilrm123/tiralabra-harjoitustyo/blob/main/dokumentaatio/viikkoraportti_6.md)
