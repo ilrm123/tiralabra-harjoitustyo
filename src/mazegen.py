@@ -279,6 +279,43 @@ class MazeGeneration:
         pygame.draw.rect(screen, (100,180,255), pygame.Rect(coords[walls[0][0]][0]+2, coords[walls[0][0]][1]+2, 21, 21))
         pygame.draw.rect(screen, (100,180,255), pygame.Rect(coords[wall[1]][0]+2, coords[wall[1]][1]+2, 21, 21))
         pygame.display.flip()
+    
+    def get_stats(self, walls):
+        stats = [0, 0, 0, 0]
+
+        amounts = {}
+        for wall in walls:
+            if wall[0] not in amounts:
+                amounts[wall[0]] = 1
+            else:
+                amounts[wall[0]] += 1
+            
+            if wall[1] not in amounts:
+                amounts[wall[1]] = 1
+            else:
+                amounts[wall[1]] += 1
+            
+        for square in amounts:
+            if amounts[square] == 1:
+                stats[0] += 1
+            elif amounts[square] == 2:
+                stats[1] += 1
+            elif amounts[square] == 3:
+                stats[2] += 1
+            elif amounts[square] == 4:
+                stats[3] += 1
+        
+        return stats
+    
+    def compare(self, stats):
+        for algo in stats:
+            print(f"{algo}: ")
+            print(f"{stats[algo][0]} umpikujaa")
+            print(f"{stats[algo][1]} kahden suunnan ruutua")
+            print(f"{stats[algo][2]} kolmen suunnan ruutua")
+            print(f"{stats[algo][3]} neljän suunnan ruutua")
+            print(f"Kulunut aika: {stats[algo][4]} s")
+            
 
 
 def main():
@@ -293,43 +330,58 @@ def main():
         print("Liian pienet mitat labyrintille")
     else:
         maze = MazeGeneration(height, width)
+        stats = {}
 
         while True:
+            print()
             print("Valitse haluamasi algoritmi: ")
             print("1. Generoi satunnaistetulla syvyyshaulla")
             print("2. Generoi Primin algoritmilla")
             print("3. Generoi Kruskalin algoritmilla")
-            print("4. Lopeta")
-            action = int(input("Syötä numero: "))
+            print("4. Katso vertailutilastoa algoritmeista")
+            print("5. Lopeta")
+            action = input("Syötä numero: ")
+            print()
 
-            if action == 1:
+            if action == "1":
                 graph1 = maze.create_graph()
                 start = time.time()
                 depth = maze.random_depthfirst(graph1)
                 end = time.time()
-                print(f"Satunnaistettuun syvyyshakuun kulunut aika: {end-start} s")
-                ans = int(input("Haluatko visualisoida syvyyshaun? 1 = Kyllä tai 2 = Ei: "))
-                if ans == 1:
+                stats["Syvyyshaku"] = maze.get_stats(depth)
+                stats["Syvyyshaku"].append(end-start)
+                print("Labyrintti on generoitu")
+                ans = input("Haluatko visualisoida syvyyshaun? 1 = Kyllä tai 2 = Ei: ")
+                if ans == "1":
                     maze.visualize(depth)
-            elif action == 2:
+            elif action == "2":
                 graph2 = maze.create_graph()
                 start = time.time()
                 prim = maze.random_prim(graph2)
                 end = time.time()
-                print(f"Satunnaistettuun Primin algoritmiin kulunut aika: {end-start} s")
-                ans = int(input("Haluatko visualisoida Primin algoritmin? 1 = Kyllä tai 2 = Ei: "))
-                if ans == 1:
+                stats["Prim"] = maze.get_stats(prim)
+                stats["Prim"].append(end-start)
+                print("Labyrintti on generoitu")
+                ans = input("Haluatko visualisoida Primin algoritmin? 1 = Kyllä tai 2 = Ei: ")
+                if ans == "1":
                     maze.visualize(prim)
-            elif action == 3:
+            elif action == "3":
                 graph3 = maze.create_graph()
                 start = time.time()
                 kruskal = maze.random_kruskal(graph3)
                 end = time.time()
-                print(f"Satunnaistettuun Kruskalin algoritmiin kulunut aika: {end-start} s")
-                ans = int(input("Haluatko visualisoida Kruskalin algoritmin? 1 = Kyllä tai 2 = Ei: "))
-                if ans == 1:
+                stats["Kruskal"] = maze.get_stats(kruskal)
+                stats["Kruskal"].append(end-start)
+                print("Labyrintti on generoitu")
+                ans = input("Haluatko visualisoida Kruskalin algoritmin? 1 = Kyllä tai 2 = Ei: ")
+                if ans == "1":
                     maze.visualize(kruskal)
-            elif action == 4:
+            elif action == "4":
+                if len(stats) != 0:
+                    maze.compare(stats)
+                else:
+                    print("Generoi ainakin yhdellä algoritmilla ennen tätä toimintoa")
+            elif action == "5":
                 break
 
 
