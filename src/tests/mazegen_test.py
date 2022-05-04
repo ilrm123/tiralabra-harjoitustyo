@@ -78,4 +78,9 @@ class TestMazeGeneration(unittest.TestCase):
         self.assertEqual(sorted(visited), realamount)
 
     def test_get_stats_palauttaa_oikeat_tiedot(self):
-        pass
+        walls = [(11, 7), (7, 3), (11, 10), (3, 4), (10, 6), (4, 8), (11, 12), (3, 2), (10, 9), (9, 5), (5, 1)]
+
+        correctstats = [5, 4, 3, 0]
+        teststats = self.generator.get_stats(walls)
+
+        self.assertEqual(correctstats, teststats)
