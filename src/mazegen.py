@@ -341,6 +341,8 @@ def main():
 
     """
 
+    print()
+    print("--Labyrinttigeneraattori--")
     height = int(input("Anna labyrintin korkeus: "))
     width = int(input("Anna labyrintin leveys: "))
 
