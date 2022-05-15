@@ -29,16 +29,16 @@ Kruskalin algoritmi: 1.259 sekuntia
 
 ### 100x100
 
-Satunnaistettu syvyyshaku: 0.019 sekuntia
-Primin algoritmi: 0.404 sekuntia
-Kruskalin algoritmi: 20.354 sekuntia
+Satunnaistettu syvyyshaku: 0.019 sekuntia  
+Primin algoritmi: 0.404 sekuntia  
+Kruskalin algoritmi: 20.354 sekuntia  
 
 
 ### 150x150
 
-Satunnaistettu syvyyshaku: 0.039 sekuntia
-Primin algoritmi: 1.771 sekuntia
-Kruskalin algoritmi: 104.405 sekuntia
+Satunnaistettu syvyyshaku: 0.039 sekuntia  
+Primin algoritmi: 1.771 sekuntia  
+Kruskalin algoritmi: 104.405 sekuntia  
 
 
 Näistä voi huomata että satunnaistettu syvyyshaku on selvästi algoritmeista tehokkain, kun taas Kruskalin algoritmi on selvästi vähiten tehokas. Algoritmit ovat kuitenkin tässä projektissa toteutettu varsin improvisoidusti ja vapaamuotoisesti, etenkin Kruskalin algoritmi, joka on äärimmäisen hidas sillä sen toteutuksessa ei ole käytetty suositeltuja tietorakenteita vaan ne on toteutettu itse Pythonin valmiilla tietorakenteilla. Nämä algoritmien suorituskyvyt eivät siis vastaa niiden niin sanottuja "virallisia" suorityskykyjä.
