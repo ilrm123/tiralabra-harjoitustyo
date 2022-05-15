@@ -4,7 +4,7 @@ Ohjelman yleisrakenne on yksinkertainen, kaikki toiminnallisuus on yhdessä tied
 
 Tarkka tieto aika- tai tilavaativuuksista on valitettavasti jäänyt uupumaan, mutta ohjelmaa suorittaessa voi huomata että kolmesta tämänhetkisestä algoritmista satunnaistettu syvyyshaku on huomattavasti nopein, ja Kruskal hitain, etenkin suurilla syötteillä. Satunnaistettu Primin algoritmi on todella hidas jos labyrintin leveys tai korkeus on hyvin suuri, Kruskalin algoritmi taas on äärimmäisen hidas jopa ei-niin-suurilla syötteillä (esim. 100x100). Luotujen labyrinttien rakenteista huomaa sen, että satunnaistetulla syvyyshaulla luoduissa labyrinteissa on runsaasti kahden suunnan ruutuja ja hyvin vähän neljän suunnan ruutuja. Primin ja Kruskalin luomat labyrintit ovat erittäin samanlaisia keskenään; niissä on paljon kolmen ja neljän suunnan ruutuja ja vähemmän kahden suunnan ruutuja kuin syvyyshaussa.
 
-Työn tämänhetkisiä puutteita ovat ainakin suorituskykytestauksen puute ja mahdollisesti hieman "väärin" toteutetut algoritmit mikä mahdollisesti vaikuttaa aikavaativuuteen.
+Työn puutteita ovat ainakin testauksen vähäisyys ja mahdollisesti hieman "väärin" toteutetut algoritmit mikä mahdollisesti vaikuttaa aikavaativuuteen.
 
 Työtä voisi parannella ainakin joillain hienosäädöillä, kuten virheellisten syötteiden käsittelyllä ja mahdollistamalla todella suurten labyrinttien visualisoinnin (Pygamen ikkuna skaalautuu labyrintin koon mukaan joten isot labyrintit eivät mahdu ruudulle), sekä algoritmien tehokkuuden optimoinnilla.
 
