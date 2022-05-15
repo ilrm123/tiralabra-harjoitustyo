@@ -23,9 +23,9 @@ Suorituskykytestausta ei ole varsinaisesti omana eriytettynä testauksenaan mutt
 
 ### 50x50
 
-Satunnaistettu syvyyshaku: 0.005 sekuntia
-Primin algoritmi: 0.065 sekuntia
-Kruskalin algoritmi: 1.259 sekuntia
+Satunnaistettu syvyyshaku: 0.005 sekuntia  
+Primin algoritmi: 0.065 sekuntia  
+Kruskalin algoritmi: 1.259 sekuntia  
 
 ### 100x100
 
